@@ -90,7 +90,7 @@ export const resume: Resume = {
     {
       id: "mpidc",
       name: "MPIDC Single Window System",
-      tagline: "Madhya Pradesh's single-window portal for industrial investors",
+      tagline: "Ends the department-by-department chase: investors find land, incentives and clearances in one portal",
       kind: "Professional",
       liveUrl: "https://sws.invest.mp.gov.in/",
       image: "/projects/mpidc.webp",
@@ -104,7 +104,7 @@ export const resume: Resume = {
     {
       id: "cgem",
       name: "C-GEM",
-      tagline: "Community-owned carbon market platform",
+      tagline: "Makes the carbon market answer to growers, not just buyers: readable contracts, traceable revenue",
       kind: "Professional",
       liveUrl: "https://cgem.org.in/",
       image: "/projects/cgem.webp",
