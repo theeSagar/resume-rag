@@ -1,0 +1,164 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Paper + Ink tokens: one typeface, warm neutral greys, one quiet accent for links and focus. */
+:root {
+  --canvas: #fbfbfa;
+  --tile: #ffffff;
+  --tile-2: #f5f5f4;
+  --line: #e7e5e4;
+  --fg: #1c1917;
+  --fg-2: #44403c;
+  --muted: #6b6560;
+  --soft: #a8a29e;
+  --accent: #1d4ed8;
+}
+
+.dark {
+  --canvas: #0c0c0c;
+  --tile: #161616;
+  --tile-2: #1c1c1c;
+  --line: #2a2a2a;
+  --fg: #ededec;
+  --fg-2: #c9c7c4;
+  --muted: #9a9894;
+  --soft: #66625e;
+  --accent: #93b4fd;
+}
+
+@theme inline {
+  --color-canvas: var(--canvas);
+  --color-tile: var(--tile);
+  --color-tile-2: var(--tile-2);
+  --color-line: var(--line);
+  --color-fg: var(--fg);
+  --color-fg-2: var(--fg-2);
+  --color-muted: var(--muted);
+  --color-soft: var(--soft);
+  --color-accent: var(--accent);
+}
+
+@theme {
+  --font-sans: "Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, "SFMono-Regular", Consolas, monospace;
+}
+
+@layer base {
+  html {
+    color-scheme: light;
+    scroll-behavior: smooth;
+  }
+  html.dark {
+    color-scheme: dark;
+  }
+  body {
+    @apply bg-canvas font-sans text-fg antialiased;
+    font-feature-settings: "ss01", "cv11";
+  }
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-accent;
+  }
+  ::selection {
+    background: rgb(29 78 216 / 0.15);
+  }
+}
+
+/* Horizontal chip rows still scroll by touch, without a visible bar. */
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Gentle fade-in for page content; nothing bounces, glows or slides far. */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.fade-up {
+  animation: fade-up 500ms ease-out backwards;
+  animation-delay: calc(var(--i, 0) * 70ms);
+}
+
+@keyframes shimmer {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(250%);
+  }
+}
+.shimmer {
+  position: relative;
+  overflow: hidden;
+  height: 2px;
+  border-radius: 9999px;
+  background: var(--line);
+}
+.shimmer::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 40%;
+  border-radius: inherit;
+  background: var(--muted);
+  animation: shimmer 1.4s ease-in-out infinite;
+}
+
+/* PipelineView "thinking" state: each node lights up in turn (delay set inline). */
+@keyframes pipeline-step {
+  0%,
+  40%,
+  100% {
+    opacity: 0.45;
+  }
+  10%,
+  25% {
+    opacity: 1;
+  }
+}
+.pipeline-pending-node {
+  animation: pipeline-step 2.4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .fade-up,
+  .pipeline-pending-node,
+  .shimmer::after {
+    animation: none;
+  }
+  .pipeline-pending-node {
+    opacity: 1;
+  }
+}
+
+/* Printing the home page gives a plain one-column résumé. */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  html,
+  body {
+    background: #fff !important;
+    color: #000 !important;
+  }
+  a {
+    color: inherit !important;
+    text-decoration: none !important;
+  }
+  section {
+    break-inside: avoid-page;
+  }
+}
