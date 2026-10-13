@@ -7,7 +7,7 @@ Legend: ✅ implemented &nbsp;•&nbsp; ⚠️ file exists but is **empty** (stu
 ```
 resume_rag/
 ├── .env                              ✅ environment config (DB url, LLM keys, embedding provider) — not read here (secrets)
-├── requirement.txt                   ✅ pip freeze of dependencies (UTF-16 encoded — see Notes)
+├── requirements.txt                  ✅ pip freeze of dependencies
 ├── docker-compose.yml                ⚠️ empty — no containerization set up yet
 ├── create_tables.py                  ✅ one-off script: creates Postgres tables from SQLAlchemy models
 ├── ingest_resume.py                  ✅ one-off script: ingests data/sagar_python_2Y.pdf into the vector store
@@ -97,7 +97,6 @@ Everything below exists as an empty file — i.e., you've scaffolded the intende
 ## Small issues worth knowing about
 
 - `app/ingestion/providers/_init__.py` is misnamed (one underscore short of `__init__.py`), so it isn't actually recognized as a package initializer by Python — it currently does nothing.
-- `requirement.txt` is saved in UTF-16 encoding, which made it unreadable as plain text; most tools (and `pip install -r`) expect UTF-8, so it may be worth re-saving it.
 
 ## In short
 

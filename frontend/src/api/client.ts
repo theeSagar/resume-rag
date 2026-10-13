@@ -5,7 +5,7 @@ export const CHAT_TIMEOUT_MS = 60_000;
 const HEALTH_TIMEOUT_MS = 5_000;
 
 export const ERROR_MESSAGES: Record<ApiErrorKind, string> = {
-  network: "Can't reach the assistant. Is the API running on :8000?",
+  network: "Can't reach the assistant right now. Please try again in a moment.",
   server: "Something went wrong on the server for this question.",
   timeout: "This is taking longer than usual. Please try again.",
   bad_response: "Received an unexpected response from the server.",
