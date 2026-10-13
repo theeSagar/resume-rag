@@ -10,7 +10,7 @@ export function ProjectsSection({ onAsk }: { onAsk: (question: string) => void }
     <Section id="projects" title="Projects">
       <ul className="space-y-14">
         {resume.projects.map((project) => (
-          <li key={project.name}>
+          <li key={project.id} id={project.id} className="scroll-mt-24">
             {project.image && project.liveUrl && (
               <a
                 href={project.liveUrl}

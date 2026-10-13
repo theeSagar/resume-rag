@@ -17,9 +17,7 @@ export interface Profile {
   resumeUrl: string;
   resumeFileName: string;
   headline: string;
-  /** The opening hook, shown larger than the rest of the intro. */
   hook: string;
-  intro: string;
   availability: string;
   now: { title: string; detail: string };
   heroStats: HeroStat[];
@@ -39,8 +37,6 @@ export const profile: Profile = {
   resumeFileName: "Sagar_Verma_Resume.pdf",
   headline: "Backend & AI Engineer",
   hook: "Hey, I'm Sagar. While most people are building weekend toys, I build digital infrastructure for the people of India.",
-  intro:
-    "I engineer the backend architecture for government platforms at Primus Partners using Python, Django and FastAPI, and build production-ready RAG AI systems on the side. You're actually talking to one right now: ask it anything about my work.",
   availability: "Open to roles · Delhi NCR · Jaipur · relocate",
   now: {
     title: "Associate Software Engineer · Primus Partners",
