@@ -20,19 +20,13 @@ export function Hero({ onAsk }: { onAsk: (question: string) => void }) {
         <h1 id="hero-title" className="mt-5 text-4xl font-semibold tracking-[-0.035em] sm:text-[52px] sm:leading-[1.05]">
           {profile.name}
         </h1>
-        <p className="mt-3 text-lg text-fg-2 sm:text-xl">
-          {profile.headline}
-          <span className="text-soft"> · </span>
-          <span className="text-muted">{profile.tagline}</span>
-        </p>
+        <p className="mt-3 text-lg text-fg-2 sm:text-xl">{profile.headline}</p>
       </div>
 
-      <p
-        className="fade-up mt-6 max-w-[58ch] text-[16px] leading-7 text-muted"
-        style={stagger(2)}
-      >
-        {profile.intro}
-      </p>
+      <div className="fade-up mt-6 max-w-[60ch]" style={stagger(2)}>
+        <p className="text-xl font-medium leading-snug tracking-tight text-fg sm:text-2xl">{profile.hook}</p>
+        <p className="mt-4 text-[16px] leading-7 text-muted">{profile.intro}</p>
+      </div>
 
       <div
         className="fade-up no-print mt-8 flex flex-wrap items-center gap-2"

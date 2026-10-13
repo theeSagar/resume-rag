@@ -1,6 +1,7 @@
 // Transcribed from data/sagar_python_2Y.pdf. The phone number is deliberately left out.
 export interface ExperienceProject {
   name: string;
+  liveUrl?: string;
   bullets: string[];
   highlights: string[];
   ask: string;
@@ -24,6 +25,9 @@ export interface Project {
   stack: string[];
   bullets: string[];
   ask: string;
+  liveUrl?: string;
+  /** Screenshot under public/projects/. */
+  image?: string;
 }
 
 export interface SkillGroup {
@@ -79,6 +83,7 @@ export const resume: Resume = {
       projects: [
         {
           name: "MPIDC (Single Window System)",
+          liveUrl: "https://sws.invest.mp.gov.in/",
           ask: "Explain the MPIDC Single Window System project in detail.",
           bullets: [
             "Designed backend services for MPIDC (Madhya Pradesh Industrial Development Corporation) utilizing Python, Django REST Framework, PostgreSQL, ORM & SQL, including Razorpay payment gateway integration & Kafka-driven workflow processing.",
@@ -92,6 +97,7 @@ export const resume: Resume = {
         },
         {
           name: "C-GEM",
+          liveUrl: "https://cgem.org.in/",
           ask: "How did Sagar build C-GEM for 1,000–2,000 concurrent users?",
           bullets: [
             "Designed and implemented a real-time group communication platform supporting 1,000–2,000 concurrent users using Flask-SocketIO.",
@@ -128,11 +134,26 @@ export const resume: Resume = {
       name: "MPIDC Single Window System",
       tagline: "Madhya Pradesh Industrial Development Corporation",
       kind: "Professional",
+      liveUrl: "https://sws.invest.mp.gov.in/",
+      image: "/projects/mpidc.webp",
       stack: ["Python", "Django", "ReactJS", "PostgreSQL"],
       ask: "What was Sagar's role in architecting the MPIDC Single Window System?",
       bullets: [
         "Architecting backend services for the MPIDC Single Window System using Python and Django REST Framework while delivering RESTful APIs & supporting government processes.",
         "Managing data operations through PostgreSQL using both ORM and optimized SQL queries, ensuring efficient backend functionality, system integration, and application performance.",
+      ],
+    },
+    {
+      name: "C-GEM",
+      tagline: "Community-owned carbon market platform",
+      kind: "Professional",
+      liveUrl: "https://cgem.org.in/",
+      image: "/projects/cgem.webp",
+      stack: ["Python", "Flask", "Flask-SocketIO", "PostgreSQL"],
+      ask: "How did Sagar build C-GEM for 1,000–2,000 concurrent users?",
+      bullets: [
+        "Designed and implemented a real-time group communication platform supporting 1,000–2,000 concurrent users using Flask-SocketIO.",
+        "Established role-based access control for NGOs, investors & developers, ensuring controlled access to platform resources.",
       ],
     },
     {

@@ -9,7 +9,6 @@ export interface Profile {
   firstName: string;
   initials: string;
   role: string;
-  tagline: string;
   email: string;
   location: string;
   /** Add your profile URLs here. Each icon stays hidden while its URL is empty. */
@@ -18,6 +17,8 @@ export interface Profile {
   resumeUrl: string;
   resumeFileName: string;
   headline: string;
+  /** The opening hook, shown larger than the rest of the intro. */
+  hook: string;
   intro: string;
   availability: string;
   now: { title: string; detail: string };
@@ -30,7 +31,6 @@ export const profile: Profile = {
   firstName: "Sagar",
   initials: "SV",
   role: "Software Engineer",
-  tagline: "Python · FastAPI · Django · RAG",
   email: "sagar.karanveer1@gmail.com",
   location: "Delhi NCR, India",
   github: "https://github.com/theeSagar",
@@ -38,8 +38,9 @@ export const profile: Profile = {
   resumeUrl: "/resume.pdf",
   resumeFileName: "Sagar_Verma_Resume.pdf",
   headline: "Backend & AI Engineer",
+  hook: "Hey, I'm Sagar. While most people are building weekend toys, I build digital infrastructure for the people of India.",
   intro:
-    "I build government-scale backend platforms with Python, Django and FastAPI at Primus Partners, and RAG-powered AI on the side. This site is one of them: ask it anything about my work.",
+    "I engineer the backend architecture for government platforms at Primus Partners using Python, Django and FastAPI, and build production-ready RAG AI systems on the side. You're actually talking to one right now: ask it anything about my work.",
   availability: "Open to roles · Delhi NCR · Jaipur · relocate",
   now: {
     title: "Associate Software Engineer · Primus Partners",

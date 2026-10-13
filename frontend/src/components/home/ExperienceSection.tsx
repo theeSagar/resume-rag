@@ -1,6 +1,7 @@
 import { resume } from "../../data/resume";
 import { Bullets, EntryHeader, Section } from "../ui/Section";
 import { AskLink } from "./AskLink";
+import { LiveLink } from "./LiveLink";
 
 export function ExperienceSection({ onAsk }: { onAsk: (question: string) => void }) {
   return (
@@ -22,7 +23,10 @@ export function ExperienceSection({ onAsk }: { onAsk: (question: string) => void
                   <div key={project.name}>
                     <h4 className="text-sm font-medium text-fg">{project.name}</h4>
                     <Bullets items={project.bullets} />
-                    <AskLink topic={project.name.replace(/ \(.*\)$/, "")} question={project.ask} onAsk={onAsk} />
+                    <div className="flex flex-wrap items-center gap-x-5">
+                      {project.liveUrl && <LiveLink url={project.liveUrl} />}
+                      <AskLink topic={project.name.replace(/ \(.*\)$/, "")} question={project.ask} onAsk={onAsk} />
+                    </div>
                   </div>
                 ))}
               </div>
